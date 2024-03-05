@@ -27,17 +27,4 @@ router.delete('/deleteblog/:id', (req, res, next) => {
 });
 
 
-
-// router.post("/signup", signup)
-// router.post("/login", login)
-// router.post("/create-blog", (req, res, next) => {
-//     isLoggedin, isAdmin(req, res, () => isAdmin(req, res, createBlog(req, res, next))),
-// router.route('/getblog/:id').get([ isLoggedin ], getSingleBlog)
-// router.route('/getall-blog').get([ isLoggedin], getAllBlogs)
-// router.route('/update-blog/:id').patch([ isLoggedin, isAdmin ], updateBlog)
-// router.route('/deleteblog/:id').delete([ isLoggedin, isAdmin ], deleteBlog)
-
-
-
-
 module.exports = router

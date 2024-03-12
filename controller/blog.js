@@ -2,12 +2,16 @@ const blog = require('../model/blog')
 
 const createBlog = async(req, res)=>{
     const {title, content, author} = req.body;
+    const image = req.files.image;
     try {
         const existingBlog = await blog.findOne({title})
         if(existingBlog){
             res.status(401).json({messgae: "Blog already exist", success: false})
         }
-        
+        if(!req.files || Object.keys(req.files).length === 0) {
+            return res.status(401).json({ message: 'Blog image is required' })
+        }
+        const uploadPath = __dirname + '/uploads/' + image.name;
         const newBlog = await blog.create({
             title,
             content,
